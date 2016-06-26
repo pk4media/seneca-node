@@ -1,5 +1,5 @@
 {
-  "name": "firebase-node",
+  "name": "seneca-node",
   "main": "index.d.ts",
   "dependencies": {
   }
