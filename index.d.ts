@@ -38,7 +38,12 @@ declare module "seneca" {
   namespace core {
     type Pattern = Seneca.Pattern;
 
-    interface ISeneca extends Seneca.ISeneca { }
+    interface ISeneca extends Seneca.ISeneca {
+      add<T, TResult>(pattern: Unknown, action: Seneca.AddCallback<T, TResult>): this;
+      act<T>(pattern: Pattern, respond: Seneca.ActCallback<T>): void;
+      use<T>(plugin: IPlugin<T>, options?: T): this;
+      use<T>(plugin: string, options?: T): this;
+    }
     interface IPlugin<T> extends Seneca.IPlugin<T> { }
     interface IPluginOptions extends Seneca.IPluginOptions { }
   }
@@ -48,7 +53,13 @@ declare module "seneca" {
   namespace s {
     type Pattern = core.Pattern;
 
-    export interface ISeneca extends core.ISeneca { }
+    export interface ISeneca extends core.ISeneca {
+      add<T, TResult>(pattern: Unknown, action: Seneca.AddCallback<T, TResult>): this;
+      act<T>(pattern: Pattern, respond: Seneca.ActCallback<T>): void;
+      use<T>(plugin: IPlugin<T>, options?: T): this;
+      use<T>(plugin: string, options?: T): this;
+    }
+
     export interface IPlugin<T> extends core.IPlugin<T> { }
     export interface IPluginOptions extends core.IPluginOptions { }
     export var Seneca: ISeneca;
